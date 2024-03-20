@@ -1,4 +1,6 @@
-Compute Engine features
+Compute Engine
+
+Features
 
 Is a service that provides us Virtual Machines (VM) or virtual servers on GCP.
 They have some features:
@@ -7,3 +9,29 @@ They have some features:
 - Load balancing and auto scaling for multiple VM instances.
 - Manage network configuration and connectivity for our VM instances.
 
+
+
+IPs
+
+- External IP addresses are addressable on the Internet.
+- Internal IP addresses are internal to the corporate network (GCP).
+- When we restart a VM, the external IP address is lost. (We can fix that using a static external
+  IP address).
+
+
+
+Instance templates
+
+- Is a way to avoid having to configure our instances (type of machine, startup script, etc) every
+  time you launch an instance.
+- We can use it to launch an individual Virtual Machine or a group of Virtual Machines.
+- Cannot be updated.
+
+
+
+Custom images
+
+- Installing OS updates, patches, and software might takes several time (instance templates), it
+  could be a problem.
+- We can create a custom image with the OS updates, patches and software pre-installed.
+- It's preferible to use a custom image over a startup script (due to the boot time).
