@@ -1,0 +1,11 @@
+Why?
+
+Becase we want low latency (even if our users are from different parts of the world, deploying our
+application in different regions will give us low latency) and high availability (having our
+application deployed in different regions and data centers ensures that if there is a crash in a
+data center, our app will still be available from the others).
+
+Zones
+
+Each of the regions has at least, 3 zones, so we can have low latency in a specific region and high
+availability if we have our application deployed in differente zones of that region.

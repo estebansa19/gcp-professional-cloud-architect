@@ -1,0 +1,9 @@
+Compute Engine features
+
+Is a service that provides us Virtual Machines (VM) or virtual servers on GCP.
+They have some features:
+
+- Create and manage the lifecycle of Virtual Machines (start, restart, close).
+- Load balancing and auto scaling for multiple VM instances.
+- Manage network configuration and connectivity for our VM instances.
+
