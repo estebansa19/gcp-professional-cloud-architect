@@ -1,0 +1,35 @@
+Instance Groups
+
+- Is a group of VM instances managed as a single entity.
+- There are two types:
+
+  Managed Instance Groups, they use identical VMs created with a template, it provides us, auto
+  scalling according to the usage of our instances; auto healing with health checks that if a
+  problem with a VM is detected, that VM will be replaced; managed releases, which is
+  important to have 0 downtime time with our deploy processes; load balancers, to distribute the
+  load; also, we can create instances in multiples zones for higher availability.
+
+  Unmanaged Instance Groups, they use differente configurations in the same group, it does not
+  provide the same features as Managed Instances do (auto scalling, auto healing, managed
+  releases).
+
+
+
+Updating a Managed Instance Group
+
+- It can be done in 2 ways:
+
+  Rolling updates, gradual update of instances in an instance group to a new instance template. It
+  is gradual, for instance, in groups of 2 instance each time.
+
+  Canary testing, you first update a minor amount of instance for testing, then you release the
+  update to the rest of the instances at once.
+
+
+
+
+Cloud Load Balancing
+
+- Distributes the user traffic across instances of an application.
+- Features: auto scaling, global load balancing with single anycast IP.
+- It gives us high availability in our applications.
