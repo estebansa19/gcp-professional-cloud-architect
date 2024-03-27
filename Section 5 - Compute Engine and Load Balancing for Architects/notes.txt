@@ -1,0 +1,100 @@
+Important things architecting solutions on GCP:
+- Build resiliency
+- Increase availability
+- Increase scability
+- Improve performance
+- Improve security
+- Lower costs
+
+
+
+What is availability?
+
+Are the applications available when the users need them? (percentage of time an application is
+working)
+
+i.e: 99.99% of availability (which means 22 minutes of downtime per month).
+
+
+
+What is scalability?
+
+Can we handle a growth in users, traffic, data, etc, without losing performance? Is the ability to
+adapt to changes in demand, users, data.
+
+Types of scalability:
+
+- Vertical: deploying the application to a bigger instance, a faster CPU, more RAM, I/O, networking
+  capabilities.
+- Horizontal: deploying multiple instances of our application/database. Typically, is prefered over
+  vertical scaling. Horizontal scaling has no limits, it's cheaper and increase the availability of
+  the application.
+- If we need to do upgrade in our software or hardware, how do we keep our VM instances running? We
+  can use Live Migration, it will move the VM instances to another host while the operation is executed.
+
+
+
+Compute Engine GPUs
+
+- Used for math intensive and graphics intensive workloads, AI, ML, etc.
+
+
+
+Security
+
+- Firewall rules, to restrict the traffic that is coming in (ingress) and going out (egress).
+- Use internal IP addresses if possible.
+- Create a hardened custom image to launch our VMs.
+
+
+
+Performace
+
+- Choose the right machine family type for our workload.
+- Create a hardened custom image so the start time of our virtual machines is faster.
+
+
+
+Resiliency
+
+- Ability of a system to provide acceptable behavior even when some parts of the system fail.
+- Build resilient architectures (VMs in Multiple Instance Groups behind Load Balancing).
+- Use health checks.
+- Use Live Migration and Automatic Restart.
+
+
+
+Discounts
+
+They are applicable for instances created by the Kubernetes Engine and Compute Engine.
+
+- Sustained use discounts: discounts based on the use you give to the VM, if you use it more,
+  .you will get more discount
+- Commited use discounts: discounts for a long term commitment of use, i.e: 1 year, 3 years. This
+  offers you more discount than the sustained use discounts.
+
+
+
+Spot VM
+
+- Short-lived cheaper (60 - 91% discount) compute instances.
+- Use preemptive VMs if your application is fault tolerant, if you are very cost sensitive.
+- They are not always availabile.
+- Free tier credits not applicable.
+
+
+
+Billing in Compute Engine
+
+- You are billed for seconds (after one minute).
+- You are not billed for a VM when the instance is stopped.
+- Create budget alerts.
+
+
+
+Cost efficiency
+
+- Use the optimal amount of VMs (auto scaling).
+- Sustained use discounts (discounts for using a instance).
+- Commited use discounts (discounts for a long term commitment).
+- Spot VMs (fault tolerant workloads).

@@ -33,3 +33,8 @@ Cloud Load Balancing
 - Distributes the user traffic across instances of an application.
 - Features: auto scaling, global load balancing with single anycast IP.
 - It gives us high availability in our applications.
+- SSL/TSL Termination/Offloading, when configuring a load balancer on GCP, the communication
+  between the Internet and our load balancer should be over HTTPS so we are sure the communication
+  is safe. However, when we are talking about the communication between our load balancer and our
+  VMs, the communciation could be over HTTP, our VM instances don't need to worry about SSL/TSL
+  certifications. This will reduce the load in our instances.
