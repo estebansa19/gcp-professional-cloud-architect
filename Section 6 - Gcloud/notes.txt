@@ -1,0 +1,31 @@
+What is Gcloud?
+
+- Is the command line tool to manage GCP services, some of the services have their own CLI tool.
+- We can install Gcloud with Google Cloud SDK in our machines or use it in Google Cloud Shell.
+- We can configure Gcloud with the command `gcloud init`.
+- In addition, we can see the properties of the current configuration that we have with the command
+  `gcloud config list`.
+- Any file stored in our home directory will persist between sessions.
+- You can use Cloud Shell to SSH into virtual machines using their private IP.
+
+
+
+Structure of a command
+
+gcloud GROUP SUBGROUP ACTION
+
+- GROUP is the service.
+- SUBGROUP are the specification of the service (instances, images, instance templates, machine
+  types, region, zones, etc).
+- ACTION what we want to do (create, restart, stop, etc).
+
+i.e:
+
+- gcloud compute instances list
+- gcloud compute instances create my-first-instance-from-gcloud
+- gcloud compute instances describe my-first-instance-from-gcloud
+- gcloud compute instances delete my-first-instance-from-gcloud
+- gcloud compute zones list
+- gcloud compute regions list
+- gcloud compute machine-types list --filter zone:us-west8-b
+- gcloud compute machine-types list --filter "zone:(us-west8-b us-west8-a)"
