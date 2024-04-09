@@ -1,0 +1,64 @@
+Terminology with cloud services:
+
+- IaaS (Infraestructure as a Service) -> Compute Engine
+
+  Example: using a VM in GCP to deploy our application. We are responsible for: application code
+  and runtime, configuring load balancing, auto scaling, OS upgrades and patches, availability,
+  etc (almost everything related to software).
+
+- PaaS (Platform as a Service) -> App Engine
+
+  The cloud provider is responsible for: OS, application runtime, auto scaling, availability, load
+  balancing, etc.
+
+  We are responsible for: configuration of the application and service, application code.
+
+  Varieties:
+
+  * CaaS (Container as a Service) containers instead of apps -> Google Kubernetes Engine.
+  * FaaS (Functions as a Service) functions instead of apps -> Cloud Functions.
+  * Databases, relational & NoSQL (Amazon RDS, Google Cloud SQL, etc)
+  * Queues, ML, AI, etc.
+
+
+
+Containers:
+
+It's a way to isolate and encapsulate a runtime environment. It can run in any infraestructure,
+in your local machine, in the cloud, etc.
+
+Docker:
+
+- Does not have a guest OS in top of the host OS, which make it faster than VM.
+- Is cloud neutral (you can use it in any cloud service).
+
+
+
+Orchestration tools:
+
+It is the way of using and managing the containers in the real life. For instance, if we need 15
+instances of the container A, 10 instances of the container B, and so on. This container
+orchestration tool would manage the deploy of the containers into clusters. Kubernetes is an
+orchestration tool.
+
+Features of an orchestration tool:
+
+- Auto scaling, scale containers based on the demand.
+- Services discoviery, find microservices or containers find one another.
+- Load balancer, distribute load among multiple instances.
+- Self healing, do health checks and replace failing instances.
+- Zero downtime deployments, release new versions without downtime.
+
+
+
+Serverless:
+
+Where to deploy? What kind of server? OS? Scaling? Serverless is a solution to focus just in our
+code.
+
+It does not mean "No servers" It means that we don't have to worry about the infraestructure. We
+get flexible scaling and automated high availability, though.
+
+We pay for requests and not servers.
+
+Examples: AWS Lambda, Google Functions.
