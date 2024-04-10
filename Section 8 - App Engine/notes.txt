@@ -1,0 +1,85 @@
+App Engine
+
+It is the implest way to deploy and scale applications in GCP. It is a managed GCP service.
+
+Features:
+
+- Automatic load balancing and scaling.
+- Managed platform updates and application monitoring.
+- Traffic splitting (being able to have different versions of your application running at the same
+  time for different sections of your customers).
+
+
+
+Environments:
+
+- Standard, applications run in language specific sandboxes. We have a complete isolation from the
+  OS. It has 2 versions, V1 for old versions of a limited quantity of programming languages and V2
+  for newer versions or programming languages and a extended support.
+
+- Flexible, applications run in Docker containers
+
+
+
+Application Component Hierarchy
+
+Application -> Service -> Versions -> Instance
+
+We can only have one application per project, is like the container of the services, we can have
+one or more services (which are like code applications), we can have different versions per service
+and those versions could have different instances attached, for instance, I can have the 30% of my
+traffic routing to the V1 and the rest routing to the V2.
+
+
+Environments comparison:
+
+Pricing
+
+- Standard charges you instance hours.
+- Flexible vCPU, memory, disks.
+
+Scaling
+
+- Standard offers you: manual, basic and automatic.
+- Flexible offers you: manual and automatic.
+
+Scaling to zero
+
+- Standard, yes.
+- Flexible, no.
+
+Instance startup time
+
+- Standard, seconds.
+- Flexible, minutes.
+
+SSH for debuggin:
+
+- Standard, no.
+- Flexible, yes.
+
+
+
+Scaling instances:
+
+- Automatic, recommended for continuously running worloads. Automatically scale the instances based
+  on: CPU utilization, concurrent request. You can configure a minimum and maximum of instances.
+- Basic, instances are created as when the requests are received. Instances are shutdown if there
+  are no load. High latency is possible if a new instance should be created.
+- Manual, adjust the number of instances manually over time
+
+
+
+Commands:
+
+- gcloud config set project prefab-range-419901 -> set a project
+- gcloud app deploy -> deploy an application
+- gcloud app services/versions/instances list -> list information
+- gcloud app deploy --version=v2 -> specify a deploy version
+- gcloud app browse --version=20240410t012718 -> get information about a specific version
+- gcloud app deploy --version=v3 --no-promote -> deploy without promoting the traffic to the new
+  version
+- gcloud app services set-traffic --splits=v3=0.5,v2=0.5 -> split traffic between versions
+- gcloud app services set-traffic --splits=v3=0.5,v2=0.5 --split-by=random -> split traffic
+  randomly
+- gcloud app services/versions/instances list --service=my-first-service -> to specify a service
