@@ -1,0 +1,61 @@
+What is Kubernetes?
+
+- Is a container orchestration solution. It provides auto scaling, load balancer, self healing,
+  zerodowntime deployments.
+- Google Kubernetes Engine is the managed service of GCP to use Kubernetes.
+- Each instances that is part of a deployment is called a Pod.
+
+
+Concepts
+
+- Cluster, is a group of Compute Engine instances.
+- Master node manages the clusters and worker nodes run the workloads.
+- Pods, the smallest unit of a deployment in Kubernetes. Each instance of a deployment is a pod.
+
+
+Modes
+
+- Autopilot, reduce your operational costs in running Kubernetes clusters. Hand off experience, do
+  not worry about managing the infraestructure (nodes, node pools, etc).
+- Standar, we have to manage all the configuration.
+
+
+
+Demo
+
+1. Create a Kubernetes cluster with the default node pool.
+2. Login to Cloud Shell.
+3. Connect to the Kubernetes cluster.
+4. Deploy a microservice to Kubernetes.
+  kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+  -> we create a deployment to deploy a microservice.
+
+  kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+  -> we create a service to expose the microservice to the real world.
+5. Increase the number of instances of our microservice
+  kubectl scale deployment hello-world-rest-api --replicas=3
+6.Increase number of nodes in your Kubernetes cluster:
+  gcloud container clusters resize my-cluster --node-pool default-pool --num-nodes=2 --zone=us-central1-c
+7. Setup auto scaling for the microservice
+  kubectl autoscale deployment hello-world-rest-api --max=4 --cpu-percent=70
+8. Setup auto scaling for our Kubernetes Cluster
+  gcloud container clusters update my-cluster --enable-autoscaling --min-nodes=1 --max-nodes=10
+9. Create environment variables for our microservice
+  kubectl create configmap config-name --from-literal=EXAMPLE_VAR=TEST
+10. Add password configuration for our microservice
+  kubectl create secret generic application-secrets --from-literal=DB_PASSWORD=example
+11. Deploy a new microservice that needs nodes with a GPU attached
+  gcloud container node-pools create POOL_NAME --cluster CLUSTER_NAME
+
+  -> We can deploy the new microservice to the new pool by setting the "nodeSelector" in the
+    deployment.yml
+
+    nodeSelector: cloud.google.com/gke-nodepool: POOL_NAME
+12. Delete the microservices
+  kubectl delete service NAME
+  -> to delete a service
+
+  kubectl delete deployment NAME
+  - to delete a deployment
+12. Delete cluster
+  gcloud container clusters delete
