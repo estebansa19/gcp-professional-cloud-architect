@@ -11,6 +11,9 @@ Concepts
 - Cluster, is a group of Compute Engine instances.
 - Master node manages the clusters and worker nodes run the workloads.
 - Pods, the smallest unit of a deployment in Kubernetes. Each instance of a deployment is a pod.
+- The ReplicaSets are responsible for managing a specific version of a deployment and ensuring that
+  it has the enough quantity of pods.
+
 
 
 Modes
@@ -18,6 +21,40 @@ Modes
 - Autopilot, reduce your operational costs in running Kubernetes clusters. Hand off experience, do
   not worry about managing the infraestructure (nodes, node pools, etc).
 - Standar, we have to manage all the configuration.
+
+
+
+Services:
+
+- It's a way to administrate the pods of our deployment, replacing them, creating new pods, exposing
+  them to the outside
+- There are 3 types of services:
+
+  ClusterIP: exposes services on a cluster-internal IP (intra cluster communication).
+  LoadBalancer: exposes services externally using cloud provider's load balancer.
+  NodePort: exposes services on each Node's IP at a static port (the NodePort).
+
+
+
+Ingress
+
+- It the best way for providing external access to our services in a cluster.
+- It provides load balancing and SSL termination.
+- Control traffic by defining rules.
+- We can use a single load balancer to control multiple microservices.
+
+
+
+Continer Registry
+
+- It's way to store our Docker images provided and managed by GCP.
+
+
+
+Best practices to create Docker images
+
+- Move things that change less often to the top of the Dockerfile to enable layer reuse.
+- Use light weight images (Alpine images).
 
 
 
