@@ -1,0 +1,4 @@
+What's Cloud Run?
+
+- It is a faster way to deploy a container to deploy in seconds.
+- It is a fully managed serverless platform for containerized applications.
