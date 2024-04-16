@@ -1,0 +1,6 @@
+Cloud Functions:
+
+- It is a way to execute code in response to some events, for instance: a file uploaded, a log
+  created, etc.
+- You don't need to worry about about the server or infraestructure.
+- You pay only for what you use.
