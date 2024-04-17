@@ -1,0 +1,18 @@
+What's new?
+
+- Longer request timeout (up to 60 minutes).
+- More powerful instances.
+- Concurrency (The same instance can hadle up to 1000 concurrent requests per function intance.
+  Before, one instance could handle 1 request at a time. You can configure this in Cloud Run).
+- It uses Cloud Run in the background (When you create a Cloud Function, it starts to build a Cloud
+  Run image in the background).
+
+
+
+Best practices
+
+- To avoid cold starts (when there is no a instances running and an instance has to be initialized
+  to handle a request), set a minimum number of instances (increases cost).
+- Configure max number of instances (to protect yourself from abnormally high requests levels).
+- Use Cloud Run for safer releases, you can configure which version should receive traffic and how
+  much. You can also rollback to a previous version if needed.
