@@ -1,0 +1,41 @@
+Block Storage
+
+- One Block Storage device can be connected to one virtual server.
+- You can connect multiple Block Storage devices to one virtual server.
+- Use case: hard disks.
+- Options in GCP: persistent disks, local SSDs.
+
+File Storage:
+
+- Shared storage.
+- When you have to share files or data between several servers in a organized way.
+- Options in GCP: Filestore.
+
+
+
+Local SSDs
+
+- Physically attached to the host of VM instance, very high IOPS and very low latency.
+- Ephemeral storage - Temporary data (data persists only until instance is running).
+- Data automatically configured and managed by Google Cloud.
+- Advantages:
+
+  Very fast IO (10-100x compared to persistent disks).
+  Ideal for cases that need high IOPs while storing temporary information.
+
+- Disadvantages:
+
+  Low durability, the data is ephemeral.
+  You cannot detach and attach it to another VM instance.
+
+
+
+Persistent Disks
+
+- Network block storage attached to a VM instance.
+- Very flexible, you can increase the size when you need it.
+- Performance scales with size.
+- Independent lifecycle from the VM instance (you can attach and detach from one instance to
+  another).
+- Use case: run your custom DB.
+
