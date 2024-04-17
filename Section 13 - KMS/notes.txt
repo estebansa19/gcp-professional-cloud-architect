@@ -1,0 +1,23 @@
+What is encryption?
+
+- What would happen if an external entity gets access to our data?
+- We can encrypt the data at rest (databases data, disk data), transitional data (data that is
+  traveling across the network), and data in use (active data processed in a non-persistent state,
+  like RAM).
+- We have 2 ways to encrypt the data:
+
+  Symmetric key encryption: we use the same key to encrypt and decrypt the data.
+  Asymmetric key encryption: we use different keys to encrypt and decrypt. Typically, we share our
+    public key to encrypt the data and we decrypt the data with our private key. It is possible to
+    discover the private key with our public key but it will take years.
+
+
+
+KMS (Key Management Service)
+
+- Allow us to create and manage cryptographic keys (symmetric and asymmetric).
+- We can have different type of keys.
+
+  Google-managed key: no configuration required.
+  Customer-managed key: when we want to create and configure a key.
+  Customer-supplied key: you provide your own key.
