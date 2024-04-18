@@ -39,3 +39,15 @@ Persistent Disks
   another).
 - Use case: run your custom DB.
 
+
+
+Snapshots
+
+- They are nothing more thank backups of our disks, they are incremental and we can schedule them.
+
+
+
+Machine Images
+
+- Contains everything you need to create a VM. On the other side, an Image contains everythin
+  required to setup a OS. It can copy the permissions, disks, everything.
