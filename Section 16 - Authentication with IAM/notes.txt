@@ -1,0 +1,51 @@
+What is IAM (Identity and access management)?
+
+- It is a tool to authenticate and authorizate identities on GCP.
+- Identities can be: a user, a group of users, an internal application, an external application.
+- IAM provides us very granular control of the actions that an identitie can do. (the action, the
+  cloud resource, the IP address, the time window).
+
+
+
+IAM step by step example
+
+1. Choose a role (set of permissions) with right permission (ex: Storage Object Admin).
+2. Create a policy binding member (your friend) with role (permissions).
+
+
+
+Roles
+
+- Roles are permissions (perform some set of actions on some set of resources).
+- Basic roles (primitive roles) not recommended to use in production
+
+  Viewer -> Read only actions.
+  Editor -> Viewer + edit actions.
+  Owner -> Editor + manage roles and permissions + billing.
+
+- Predefined roles, fine grained roles and managed by Google. Examples: Storage Admin, Storage
+  Object Admin, Storage Object Viewer, Storage Object Creator.
+- Custom roles, when predefined roles are not sufficient, we can create our custom roles.
+
+
+
+Policies
+
+- Roles (set of permissions) are assigned to members (who?) through policies.
+
+
+
+Service Accounts
+
+- Are internal managed accounts that GCP provides us to authenticate and authorize resources.
+- They are identified by an email address.
+- They don't have a password.
+- Service Accounts types
+
+  Default -> automatically created when some services are used (not recommended, they have the
+    editor role by default).
+  User managed -> user created (recommended, because provides grained access control).
+- If we are trying to connect or to use a GCP service from the outside, we can create a service
+  account with the right role and permissions, create a key for that service account and then we
+  could authenticate from the outside as that service account.
+- We can give short term permissions instead of using the service account keys, it is safer.
