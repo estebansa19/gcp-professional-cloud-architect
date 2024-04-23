@@ -1,0 +1,81 @@
+What is Cloud Storage?
+
+- Most popular, flexible and inexpensive storage service.
+- It autoscales and can scale infinite.
+- Used to store files (known as objects).
+- Objects are stored in buckets.
+- Buckets names are globally unique.
+- The max size of a single object is 5 TB but you can have an unlimited number of objects.
+- There are different kinds of storage classes that optimize your costs based on your access needs
+  (how frequent are you going to access the files).
+- We can configure a retention period to comply with regulatory and compliance requirements. You
+  cannot delete the bucket unless al objects in it have an age greather than the retention period.
+
+
+
+Storage classes
+
+- Standard -> frequently used data, does not have a mininum storage duration.
+- Nearline -> read or modify once a month on average, 30 days minimum storage duration.
+- Coldline -> read or modify at most once a quarter, 90 days minimum storage duration.
+- Archive -> less than once a year, 365 days minimum storage duration.
+
+
+
+Object Versioning
+
+- Prevents accidental deletion provides history.
+- It is enabled at bucket level.
+- In order to reduce costs, it is recommended to delete old versions of the objects.
+
+
+
+Object Lifecycle
+
+- We can manage and execute actions according to some conditions of our objects, the storage class,
+  the amount of time since we uploaded it, etc.
+- We can either delete the object or change the storage class (the changes are always to a storage
+  class that defines a less used object).
+
+
+
+Encryption
+
+- Data is encrypted by default on the server side. There are different types of encryption:
+
+  Google-managed: default, no configuration needed.
+  Customer-managed: keys managed by customer in Cloud KMS.
+  Customer-supplied: customer supplies the keys with every GCS operation.
+
+- You can encrypt the data before upload it (client-side encryption).
+- Google does not have any information about client-side encryption.
+
+
+
+Metadata
+
+- Each object in Cloud Storage can have metadata.
+- There are some general metadata key and value pairs but we can define our custom metadata key and
+  value pairs.
+
+
+
+Transferring data to GCP
+
+- GCP has different options according our needs, the size of the data and the network speed. For
+  transfers of informations in which there is not a lot of data involved, we can use an online
+  transfer. If we need a bigger transfer of data (greather than 20 TB or online transfer takes > 1
+  week), we can use Cloud Storage Transfer Service.
+
+
+
+Commands
+
+- gsutil mb gs://my-bucket-from-shell-teban -> to create a bucket called
+  "my-bucket-from-shell-teban".
+- gsutil ls -a gs://my-bucket-from-shell-teban -> list files of the bucket.
+- gsutil cp gs://source_bucket/object gs://destiny_bucket/name_copy -> to create a copy of a file.
+- gsutil mv -> to move an object.
+- gsutil rewrite -s STORAGE_CLASS gs://bucket_name/object -> to change the Storage Class of an
+  object.
+-

@@ -51,3 +51,4 @@ Machine Images
 
 - Contains everything you need to create a VM. On the other side, an Image contains everythin
   required to setup a OS. It can copy the permissions, disks, everything.
+
