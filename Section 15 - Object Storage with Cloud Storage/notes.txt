@@ -69,6 +69,12 @@ Transferring data to GCP
 
 
 
+Signed URLs
+
+- A URL that gives you permissions for a certain period of time to perform specific actions.
+
+
+
 Commands
 
 - gsutil mb gs://my-bucket-from-shell-teban -> to create a bucket called
