@@ -1,0 +1,52 @@
+Concepts
+
+- RPO (Recovery Point Objective) maximum acceptable period of data loss.
+- RTO (Recovery Time Objective) maximum acceptable period of downtime.
+
+
+
+Relational databases in GCP
+
+- OLTP (Online Transaction Processing)
+
+  Applications where large number of users make large number of small transactions. Small reads,
+  updates and deletes. You can find this in the most traditional applications, e-commerce, banking,
+  etc.
+
+  The most popular databases for these applications are: MySQL, Oracle, SQL Server, etc.
+
+  The recommended Google managed services for this kind of applications are: CloudSQL, supports
+  PostgreSQL, MySQL, and SQL Server for regional databases (a few TBs of data). Cloud Spanner,
+  provides unlimited scale (multiple PBs) and 99.999% availability for global applications with
+  horizontal scaling.
+
+- OLAP (Online Analytics Processing)
+
+  Applications that allow users to analize petabytes of data. You can find this in reporting
+  applications, analytic systems, etc.
+
+  The recommended GCP managed services for this scenario are: BigQuery, petabyt-scale distributed
+  data ware-house.
+
+  This kind of databases allow you to execute very compled and distributed queries.
+
+
+
+NoSQL databases
+
+- GCP managed services for this kind of databases.
+
+  Cloud Firestore, serverless based in documents database. Provides ACID, SQL-like queries and
+  indexes. It was designed for transactional web and mobile applications. Recommended to small to
+  medium databases (0 to a few terabytes).
+
+  Cloud BigTable, wide column database. Recommended for a lot of data (from terabytes to several
+  petabytes), recommended for large analytical and operatianl workloads. It is not recommended for
+  transactional workloads because it does not support multi row transactions.
+
+
+
+In-memory databases
+
+- Recovering data from memory is faster than recovery data from disks.
+- The recommended GCP service is Memory Store.
