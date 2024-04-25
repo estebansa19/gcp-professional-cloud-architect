@@ -1,0 +1,31 @@
+Relational Databases for transactional applications in GCP
+
+Cloud SQL
+
+- Fully managed relational database.
+- Supports MySQL, PostgreSQL, and SQL Server.
+- Regional DB providing high availability (99.95%).
+- It provides automatic encryption, automatic backups, automatic failover, read replicas, and
+  automated patching in different zones, automatic storage increase.
+- If we enable the High Availability option, it will create a standby database in a different zone
+  (but in the same region) and it will automatically failover to the standby database in case of a
+  failure. The standby database is not a read replica.
+- It cannot scale horizontally for writes, all of them should go to the primary instance.
+- Use HDDs or SSDs, for best performance SSDs are required.
+- Upto 416 of RAM and 30TB of storage.
+- We should use Cloud Spanner (more expensive) if you have huge volumes of data, if you need
+  infinite scalability, if you need a global database or if you need higher availability (99.999%).
+- Exports are more flexible than backups, but they are not automatic. Exporting a huge amount of
+  data can affect the performance of the database, in that case we can use a serverless export
+  (--ofload flag). It is prefered to import/export in multiple batches instead of large batches.
+
+
+
+Cloud Spanner
+
+- Fully managed, relational, globally distributed database service with very high availability
+  (99.999).
+- Strong transactional consistency at global scale.
+- Scales to PBs of data with automatic sharding.
+- It scales horizontally for reads and writes.
+- More expensive than Cloud SQL.
