@@ -1,0 +1,16 @@
+What's VPC? 
+
+- It is a way to create secure internal networks, to protect our resources, data and 
+  communications.
+- Different types of resources are created on the cloud (DB, services, etc) they should have
+  different types of access needs too, for example, load balances are accessible from the
+  Internet but databases or VM instances should not be accessible from the Internet.
+
+
+
+CIDR (Classless Inter-Domain Routing) Blocks
+
+- It is a way to express a range of addresses that resources in a network can have.
+- If we have 69.208.0.0/28 Indicates that the first 28 bits (out of 32) are fixed and only the last
+  4 bits can change. So, 2 to the power of 4 => 16 possible addresses.
+  
